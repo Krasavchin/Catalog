@@ -1,0 +1,33 @@
+.main__filterDirectory {
+    padding: 0 60px;
+    margin: 24px max(0px, calc((100vw - 1920px) / 2)) 0;
+    height: 60px;
+}
+
+.main__filterDirectory_list {
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.main__filterDirectory_item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.main__filterDirectory_item img {
+    height: 20px;
+    width: 20px;
+    margin: auto 0;
+}
+
+.main__filterDirectory_item a {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #AAAAAA;
+    cursor: pointer;
+    text-decoration: none;
+}

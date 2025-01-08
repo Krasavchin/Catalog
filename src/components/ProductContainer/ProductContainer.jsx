@@ -18,7 +18,7 @@ export const ProductsContainer = () => {
     async function fetchCatalog(page) {
         const response = await axios.get(`http://localhost:8081/api/v1/product/pagination?page=${page - 1}&size=16`)
         setCatalog(response.data.content)
-        setTotalElements(response.data.totalElements)
+        setTotalElements(response.data.page.totalElements)
     }
 
     useEffect(() => {
@@ -57,7 +57,7 @@ export const ProductsContainer = () => {
         else {
             return (
                 <p className={styles.products_amount}>
-                    показаны {page * 16 - 15} - {totalElements} из {totalElements} товаров
+                    Показаны {page * 16 - 15} - {totalElements} из {totalElements} товаров
                 </p>
             )
         }

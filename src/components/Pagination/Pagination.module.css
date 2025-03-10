@@ -8,14 +8,13 @@
     margin-block-end: 72px;
 }
 
-.pagination button {
+.pagination button, span {
     margin: 0 16px;
     width: 28px;
     font-size: 24px;
     transition: transform 0.2s ease-in;
     
 }
-
 
 .active {
     text-decoration: underline;
@@ -30,4 +29,3 @@
 .pagination span {
     color: #AAAAAA;
 }
-

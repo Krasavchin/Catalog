@@ -13,7 +13,6 @@ export const Pagination = ({ totalPages, onSetActiveValue }) => {
 
     const renderPages = () => {
       const pages = []; // Массив кнопок для постраничной навигации
-
       const PagesPush = (page) =>{
         pages.push(
           <button
@@ -26,7 +25,6 @@ export const Pagination = ({ totalPages, onSetActiveValue }) => {
           </button>
         )
       }
-
       const PagePushDot = () => {
         pages.push(
           <span>
@@ -34,53 +32,36 @@ export const Pagination = ({ totalPages, onSetActiveValue }) => {
           </span>
         )
       }
-
-      PagesPush(1)
-
-      if(currentPage <= 4){
-        for(let i = 2; i <= 5 && i < totalPages; i++){
+      if(totalPages <= 7){
+        for(let i = 1; i <= totalPages; i++){
           PagesPush(i)
         }
-
-        if(totalPages >= 8){
-          PagePushDot()
-        }
-
-        else if(totalPages === 7){
-          PagesPush(6)
-        }
-      }
-
-      else if(currentPage >= 5 && currentPage <= totalPages - 4){
-        PagePushDot()
-
-        for(let i = currentPage - 1; i <= currentPage + 1; i++){
-          PagesPush(i)
-        }
-        PagePushDot()
-      }
-
+      }    
       else{
-        if(totalPages >= 8){
+        PagesPush(1)
+        if(currentPage <= 4){
+          for(let i = 2; i <= 5 && i < totalPages; i++){
+            PagesPush(i)
+          }
           PagePushDot()
         }
-
-        else if(totalPages === 7){
-          PagesPush(2)
+        else if(currentPage >= 5 && currentPage <= totalPages - 4){
+          PagePushDot()
+          for(let i = currentPage - 1; i <= currentPage + 1; i++){
+            PagesPush(i)
+          }
+          PagePushDot()
         }
-
-        for(let i = totalPages - (totalPages === 5 ? 3 : 4); i <= totalPages - 1; i++){
-          PagesPush(i)
+        else{
+          PagePushDot()
+          for(let i = totalPages - 4; i <= totalPages - 1; i++){
+            PagesPush(i)
+          }
         }
-      }
-
-      if(totalPages !== 1){
         PagesPush(totalPages)
       }
-
       return pages;
     };
-
     return (
     <div className={styles.pagination}>  
       {renderPages()}
